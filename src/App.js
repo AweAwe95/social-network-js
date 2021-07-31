@@ -9,15 +9,15 @@ import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
 import {Messages} from "./components/Messages/Messages";
 
-function App() {
+function App(props) {
     return (
         <BrowserRouter>
             <div className={'app-wrapper'}>
                 <Header/>
                 <Navbar/>
                 <div className={'app-wrapper-content'}>
-                    <Route path={'/profile'} component={Profile}/>
-                    <Route path={'/messages'} component={Messages}/>
+                    <Route path={'/profile'} render={() => <Profile profilePageData={props.state.profilePageData}/>}/>
+                    <Route path={'/messages'} render={() => <Messages messagesPageData = {props.state.messagesPageData}/>}/>
                     <Route path={'/news'} component={News}/>
                     <Route path={'/music'} component={Music}/>
                     <Route path={'/settings'} component={Settings}/>

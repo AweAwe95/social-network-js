@@ -2,7 +2,8 @@ import React from "react";
 import m from "./MyPosts.module.css"
 import {Post} from "./Post/Post";
 
-export function MyPosts() {
+export function MyPosts(props) {
+
     return <div>
         My posts
         <div>
@@ -11,9 +12,7 @@ export function MyPosts() {
             <button>Remove</button>
         </div>
         <div className={m.posts}>
-            <Post message={'Hi'} likeCounter={6}/>
-            <Post message={'Bye'} likeCounter={7}/>
-            <Post message={'How old are you?'} likeCounter={10}/>
+            {props.postsData.map(p => <Post message={p.message} likeCounter={p.likeCounter}/>)}
         </div>
     </div>;
 }

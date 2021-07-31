@@ -2,23 +2,15 @@ import m from "./Messages.module.css"
 import {Friend} from "./Friend/Friend";
 import {Message} from "./Message/Message";
 
-export function Messages() {
+export function Messages(props) {
+
     return (
         <div className={m.content}>
             <div className={m.friends}>
-                <Friend id={1} name={'Vitali'}/>
-                <Friend id={2} name={'Denis'}/>
-                <Friend id={3} name={'Viktor'}/>
-                <Friend id={4} name={'Jurek'}/>
-                <Friend id={5} name={'Lika'}/>
-                <Friend id={6} name={'Vladimir'}/>
+                {props.messagesPageData.friendsData.map(f => <Friend id={f.id} name={f.name}/>)}
             </div>
             <div>
-                <Message message={'Hi'}/>
-                <Message message={'Whats up?'}/>
-                <Message message={'Lets play'}/>
-                <Message message={'Are you dumb?'}/>
-                <Message message={'Bye'}/>
+                {props.messagesPageData.messagesData.map(m => <Message message={m.message}/>)}
             </div>
         </div>
     )

@@ -2,7 +2,7 @@ import React from "react";
 import p from './Profile.module.css'
 import {MyPosts} from "./MyPosts/MyPosts";
 
-export function Profile() {
+export function Profile(props) {
     return (
         <div className={p.content}>
             <div>
@@ -10,7 +10,7 @@ export function Profile() {
                      className={p.profilePageImg} alt=""/>
             </div>
             <div>Ava + description</div>
-            <MyPosts/>
+            <MyPosts postsData={props.profilePageData.postsData}/>
         </div>
     )
 }
