@@ -6,7 +6,8 @@ export const state = {
             {id: 1, message: 'Hi', likeCounter: 6},
             {id: 2, message: 'Bye', likeCounter: 7},
             {id: 3, message: 'How old are you?', likeCounter: 10},
-        ]
+        ],
+        newPostText: ''
     },
     messagesPageData: {
         friendsData: [
@@ -30,5 +31,10 @@ export const state = {
 export const addPost = (newPostMessage) => {
     const newPost = {id: 1, message: newPostMessage, likeCounter: 0}
     state.profilePageData.postsData.push(newPost)
+    state.profilePageData.newPostText = ''
+    rerenderEntireTree(state)
+}
+export const updateNewPostText = (newText) => {
+    state.profilePageData.newPostText = newText
     rerenderEntireTree(state)
 }

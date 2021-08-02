@@ -11,7 +11,7 @@ export function Profile(props) {
                      className={p.profilePageImg} alt=""/>
             </div>
             <div>Ava + description</div>
-            <MyPosts postsData={props.profilePageData.postsData} addPost={addPost}/>
+            <MyPosts postsData={props.profilePageData.postsData} addPost={addPost} newPostText={props.profilePageData.newPostText} updateNewPostText={props.updateNewPostText}/>
         </div>
     )
 }
