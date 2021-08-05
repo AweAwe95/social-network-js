@@ -1,7 +1,6 @@
 import React from "react";
 import p from './Profile.module.css'
 import {MyPosts} from "./MyPosts/MyPosts";
-import {addPost} from "../../redux/state";
 
 export function Profile(props) {
     return (
@@ -11,7 +10,7 @@ export function Profile(props) {
                      className={p.profilePageImg} alt=""/>
             </div>
             <div>Ava + description</div>
-            <MyPosts postsData={props.profilePageData.postsData} addPost={addPost} newPostText={props.profilePageData.newPostText} updateNewPostText={props.updateNewPostText}/>
+            <MyPosts postsData={props.profilePageData.postsData} addPost={props.addPost} newPostText={props.profilePageData.newPostText} updateNewPostText={props.updateNewPostText}/>
         </div>
     )
 }
