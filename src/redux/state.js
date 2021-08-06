@@ -26,23 +26,47 @@ export let store = {
             ]
         }
     },
-    getState() {
-        return this._state
-    },
     _callSubscriber() {
         console.log('state changed')
     },
-    addPost(newPostMessage) {
-        const newPost = {id: 1, message: newPostMessage, likeCounter: 0}
-        this._state.profilePageData.postsData.push(newPost)
-        this._state.profilePageData.newPostText = ''
-        this._callSubscriber()
+
+    getState() {
+        return this._state
     },
-    updateNewPostText(newText){
-        this._state.profilePageData.newPostText = newText
-        this._callSubscriber()
-    },
-    subscribe(observer){
+    subscribe(observer) {
         this._callSubscriber = observer
+    },
+
+    dispatch(action) {
+        switch (action.type) {
+            case 'ADD-POST':
+                const newPost = {id: 1, message: this._state.profilePageData.newPostText, likeCounter: 0}
+                this._state.profilePageData.postsData.push(newPost)
+                this._state.profilePageData.newPostText = ''
+                this._callSubscriber()
+                break
+            case 'UPDATE-NEW-POST-TEXT':
+                this._state.profilePageData.newPostText = action.newText
+                this._callSubscriber()
+                break
+            default:
+                break
+        }
     }
+}
+
+export const addPostAC = () => {
+    return (
+        {
+            type: 'ADD-POST',
+        }
+    )
+}
+export const updateNewPostTextAC = (e) => {
+    return (
+        {
+            type: 'UPDATE-NEW-POST-TEXT',
+            newText: e.currentTarget.value
+        }
+    )
 }
