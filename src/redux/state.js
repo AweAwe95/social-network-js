@@ -1,3 +1,6 @@
+import {profileReducer} from "./profile-reducer";
+import {messagesReducer} from "./messages-reducer";
+
 export let store = {
     _state: {
         profilePageData: {
@@ -23,7 +26,8 @@ export let store = {
                 {id: 3, message: 'Lets play'},
                 {id: 4, message: 'Are you dumb?'},
                 {id: 5, message: 'Bye'},
-            ]
+            ],
+            newMessageText: ''
         }
     },
     _callSubscriber() {
@@ -38,35 +42,8 @@ export let store = {
     },
 
     dispatch(action) {
-        switch (action.type) {
-            case 'ADD-POST':
-                const newPost = {id: 1, message: this._state.profilePageData.newPostText, likeCounter: 0}
-                this._state.profilePageData.postsData.push(newPost)
-                this._state.profilePageData.newPostText = ''
-                this._callSubscriber()
-                break
-            case 'UPDATE-NEW-POST-TEXT':
-                this._state.profilePageData.newPostText = action.newText
-                this._callSubscriber()
-                break
-            default:
-                break
-        }
+        this._state.profilePageData = profileReducer(this._state.profilePageData, action)
+        this._state.messagesPageData = messagesReducer(this._state.messagesPageData, action)
+        this._callSubscriber(this._state)
     }
-}
-
-export const addPostAC = () => {
-    return (
-        {
-            type: 'ADD-POST',
-        }
-    )
-}
-export const updateNewPostTextAC = (e) => {
-    return (
-        {
-            type: 'UPDATE-NEW-POST-TEXT',
-            newText: e.currentTarget.value
-        }
-    )
 }
