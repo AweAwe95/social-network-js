@@ -1,4 +1,13 @@
-export const profileReducer = (state,action) =>{
+let initialState = {
+    postsData: [
+        {id: 1, message: 'Hi', likeCounter: 6},
+        {id: 2, message: 'Bye', likeCounter: 7},
+        {id: 3, message: 'How old are you?', likeCounter: 10},
+    ],
+    newPostText: ''
+}
+
+export const profileReducer = (state = initialState,action) =>{
     switch (action.type) {
         case 'ADD-POST':
             const newPost = {id: 1, message: state.newPostText, likeCounter: 0}
