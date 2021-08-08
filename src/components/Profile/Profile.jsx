@@ -1,6 +1,6 @@
 import React from "react";
 import p from './Profile.module.css'
-import {MyPosts} from "./MyPosts/MyPosts";
+import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
 
 export function Profile(props) {
     return (
@@ -10,7 +10,7 @@ export function Profile(props) {
                      className={p.profilePageImg} alt=""/>
             </div>
             <div>Ava + description</div>
-            <MyPosts postsData={props.profilePageData.postsData}  newPostText={props.profilePageData.newPostText} dispatch={props.dispatch}/>
+            <MyPostsContainer postsData={props.profilePageData.postsData}  newPostText={props.profilePageData.newPostText} dispatch={props.dispatch}/>
         </div>
     )
 }

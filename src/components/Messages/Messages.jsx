@@ -1,14 +1,14 @@
 import m from "./Messages.module.css"
 import {Friend} from "./Friend/Friend";
 import {Message} from "./Message/Message";
-import {addMessageAC, updateNewMessageTextAC} from "../../redux/messages-reducer";
+
 
 export function Messages(props) {
     const textAreaHandler = (e) => {
-        props.dispatch(updateNewMessageTextAC(e))
+        props.textAreaHandler(e)
     }
     const addMessage = () => {
-        props.dispatch(addMessageAC())
+        props.addMessage()
     }
     return (
         <div className={m.content}>

@@ -7,7 +7,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import {News} from "./components/News/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
-import {Messages} from "./components/Messages/Messages";
+import {MessagesContainer} from "./components/Messages/MessagesContainer";
 
 function App(props) {
     return (
@@ -17,7 +17,7 @@ function App(props) {
                 <Navbar/>
                 <div className={'app-wrapper-content'}>
                     <Route path={'/profile'} render={() => <Profile profilePageData={props.state.profilePageData} dispatch={props.dispatch}/>}/>
-                    <Route path={'/messages'} render={() => <Messages messagesPageData = {props.state.messagesPageData} dispatch={props.dispatch}/>}/>
+                    <Route path={'/messages'} render={() => <MessagesContainer messagesPageData = {props.state.messagesPageData} dispatch={props.dispatch}/>}/>
                     <Route path={'/news'} component={News}/>
                     <Route path={'/music'} component={Music}/>
                     <Route path={'/settings'} component={Settings}/>
