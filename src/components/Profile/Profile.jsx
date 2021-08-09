@@ -2,7 +2,7 @@ import React from "react";
 import p from './Profile.module.css'
 import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
 
-export function Profile(props) {
+export function Profile() {
     return (
         <div className={p.content}>
             <div>
@@ -10,7 +10,7 @@ export function Profile(props) {
                      className={p.profilePageImg} alt=""/>
             </div>
             <div>Ava + description</div>
-            <MyPostsContainer postsData={props.profilePageData.postsData}  newPostText={props.profilePageData.newPostText} dispatch={props.dispatch}/>
+            <MyPostsContainer/>
         </div>
     )
 }
