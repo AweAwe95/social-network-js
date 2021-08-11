@@ -1,0 +1,12 @@
+.content {
+    background-color: indianred;
+    width: 1300px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
