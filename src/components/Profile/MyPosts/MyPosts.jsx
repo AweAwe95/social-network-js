@@ -3,7 +3,7 @@ import m from "./MyPosts.module.css"
 import {Post} from "./Post/Post";
 
 export function MyPosts(props) {
-    const postsElements = props.postsData.map(p => <Post message={p.message} likeCounter={p.likeCounter}/>)
+    const postsElements = props.postsData.map(p => <Post key={p.id} message={p.message} likeCounter={p.likeCounter}/>)
     const TextAreaHandler = (e) => {
         props.textAreaHandler(e)
     }

@@ -13,10 +13,10 @@ export function Messages(props) {
     return (
         <div className={m.content}>
             <div className={m.friends}>
-                {props.messagesPageData.friendsData.map(f => <Friend id={f.id} name={f.name}/>)}
+                {props.messagesPageData.friendsData.map(f => <Friend key={f.id} id={f.id} name={f.name}/>)}
             </div>
             <div>
-                {props.messagesPageData.messagesData.map(m => <Message message={m.message}/>)}
+                {props.messagesPageData.messagesData.map(m => <Message key={m.id} message={m.message}/>)}
                 <input value={props.messagesPageData.newMessageText} onChange={textAreaHandler}/>
                 <button onClick={addMessage}>Add Message</button>
             </div>
