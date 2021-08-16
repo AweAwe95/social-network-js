@@ -2,7 +2,7 @@
     background-color: indianred;
     width: 1300px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
 }
 
 .avatar {
