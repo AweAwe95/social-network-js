@@ -69,14 +69,14 @@ export const setUsersAC = (users) => {
 }
 export const setCurrentPageAC = (currentPage) => {
     return {
-        type:'SET-CURRENT-PAGE',
+        type: 'SET-CURRENT-PAGE',
         currentPage
     }
 }
 
 export const setTotalUsersCountAC = (totalUsersCount) => {
     return {
-        type:'SET-TOTAL-USERS-COUNT',
+        type: 'SET-TOTAL-USERS-COUNT',
         totalUsersCount
     }
 }
