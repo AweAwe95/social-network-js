@@ -2,7 +2,8 @@ let initialState = {
     users: [],
     pageSize: 5,
     totalUsersCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: false
 }
 
 export const usersReducer = (state = initialState, action) => {
@@ -37,6 +38,9 @@ export const usersReducer = (state = initialState, action) => {
         }
         case 'SET-TOTAL-USERS-COUNT': {
             return {...state, totalUsersCount: action.totalUsersCount}
+        }
+        case 'TOGGLE-IS-FETCHING': {
+            return {...state, isFetching: action.isFetching}
         }
         default:
             return state
@@ -78,5 +82,12 @@ export const setTotalUsersCountAC = (totalUsersCount) => {
     return {
         type: 'SET-TOTAL-USERS-COUNT',
         totalUsersCount
+    }
+}
+
+export const setIsFetchingAC = (isFetching) => {
+    return {
+        type: 'TOGGLE-IS-FETCHING',
+        isFetching
     }
 }
