@@ -21,13 +21,13 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        follow:(userId) => {
+        follow: (userId) => {
             dispatch(followAC(userId))
         },
-        unfollow:(userId) => {
+        unfollow: (userId) => {
             dispatch(unfollowAC(userId))
         },
-        setUsers:(users) => {
+        setUsers: (users) => {
             dispatch(setUsersAC(users))
         },
         setCurrentPage: (currentPage) => {
@@ -42,4 +42,12 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-export const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent)
+export const UsersContainer = connect(mapStateToProps, {
+        follow: followAC,
+        unfollow: unfollowAC,
+        setUsers: setUsersAC,
+        setCurrentPage: setCurrentPageAC,
+        setTotalUsersCountAC: setTotalUsersCountAC,
+        toggleToFetching: setIsFetchingAC
+    }
+)(UsersAPIComponent)
