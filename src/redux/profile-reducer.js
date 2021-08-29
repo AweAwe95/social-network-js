@@ -4,7 +4,8 @@ let initialState = {
         {id: 2, message: 'Bye', likeCounter: 7},
         {id: 3, message: 'How old are you?', likeCounter: 10},
     ],
-    newPostText: ''
+    newPostText: '',
+    profile: null
 }
 
 export const profileReducer = (state = initialState,action) =>{
@@ -17,8 +18,10 @@ export const profileReducer = (state = initialState,action) =>{
         }
 
         case 'UPDATE-NEW-POST-TEXT': {
-            const stateCopy = {...state, newPostText: action.newText}
-            return stateCopy
+            return {...state, newPostText: action.newText}
+        }
+        case 'SET-USER-PROFILE': {
+            return {...state, profile: action.profile}
         }
         default:
             return state
@@ -37,6 +40,15 @@ export const updateNewPostTextAC = (e) => {
         {
             type: 'UPDATE-NEW-POST-TEXT',
             newText: e.currentTarget.value
+        }
+    )
+}
+
+export const setUserProfile = (profile) => {
+    return (
+        {
+            type: 'SET-USER-PROFILE',
+            profile
         }
     )
 }

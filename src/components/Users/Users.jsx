@@ -1,5 +1,6 @@
 import us from "./Users.module.css";
 import React from "react";
+import { NavLink} from 'react-router-dom'
 
 export function Users(props) {
 
@@ -23,9 +24,11 @@ export function Users(props) {
                 props.users.map(user => <div key={user.id}>
                     <div>
                         <div>
-                            <img
-                                src={"https://w1.pngwing.com/pngs/933/945/png-transparent-social-media-icons-avatar-user-profile-login-black-circle-silhouette-symbol.png"}
-                                className={us.avatar} alt=""/>
+                            <NavLink to={'/profile/' + user.id}>
+                                <img
+                                    src={user.photos.small != null ? user.photos.small : "https://w1.pngwing.com/pngs/933/945/png-transparent-social-media-icons-avatar-user-profile-login-black-circle-silhouette-symbol.png"}
+                                    className={us.avatar} alt=""/>
+                            </NavLink>
                         </div>
                         <div>
                             {

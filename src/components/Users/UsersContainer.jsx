@@ -47,7 +47,7 @@ export const UsersContainer = connect(mapStateToProps, {
         unfollow: unfollowAC,
         setUsers: setUsersAC,
         setCurrentPage: setCurrentPageAC,
-        setTotalUsersCountAC: setTotalUsersCountAC,
+        setTotalUsersCount: setTotalUsersCountAC,
         toggleToFetching: setIsFetchingAC
     }
 )(UsersAPIComponent)
