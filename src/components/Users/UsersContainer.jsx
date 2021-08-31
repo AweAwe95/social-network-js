@@ -4,7 +4,7 @@ import {
     setCurrentPageAC,
     setIsFetchingAC,
     setTotalUsersCountAC,
-    setUsersAC,
+    setUsersAC, toggleIsFollowingProgressAC,
     unfollowAC
 } from "../../redux/users-reducer";
 import {UsersAPIComponent} from "./UsersAPIComponent";
@@ -16,7 +16,8 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPageData.pageSize,
         totalUsersCount: state.usersPageData.totalUsersCount,
         currentPage: state.usersPageData.currentPage,
-        isFetching: state.usersPageData.isFetching
+        isFetching: state.usersPageData.isFetching,
+        followingInProgress: state.usersPageData.followingInProgress,
     }
 }
 let mapDispatchToProps = (dispatch) => {
@@ -48,6 +49,7 @@ export const UsersContainer = connect(mapStateToProps, {
         setUsers: setUsersAC,
         setCurrentPage: setCurrentPageAC,
         setTotalUsersCount: setTotalUsersCountAC,
-        toggleToFetching: setIsFetchingAC
+        toggleToFetching: setIsFetchingAC,
+        toggleIsFollowingProgress: toggleIsFollowingProgressAC,
     }
 )(UsersAPIComponent)
